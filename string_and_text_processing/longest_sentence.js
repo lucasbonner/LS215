@@ -28,8 +28,6 @@ let longText = 'Four score and seven years ago our fathers brought forth' +
   ' the people, for the people, shall not perish from the' +
   ' earth.';
 
-let myText = "I am dog. Yes, you might now me as ! the !!!!! DOG. but really, this is going to be the longest sentence, because guess what I just won't stop, you won't see any punctuation until NOW. and ! now ?? see how this is !!!!!meant to fuck!you!up";
-
 function formatSentence(sentence) {
   return sentence.split(' ').filter(str => str !== '');
 }
