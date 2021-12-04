@@ -41,17 +41,20 @@ FALSE
 
 */
 
+function charFrequency(object, elem) {
+  (object[elem] += 1) || (object[elem] = 1);
+  return object;
+}
+
 function scramble(str1, str2) {
-  let str1Arr = str1.split('');
-  let str2Arr = str2.split('');
-  let count = 0;
-  str1Arr.forEach((elem) => {
-    if (str2Arr.includes(elem)) {
-      count++;
-      str2Arr.splice(str2Arr.indexOf(elem), 1);
+  let str2Obj = str2.split('').reduce(charFrequency, {});
+  let str1Obj = str1.split('').reduce(charFrequency, {});
+  for (let prop in str2Obj) {
+    if (str1Obj[prop] < str2Obj[prop] || str1Obj[prop] === undefined) {
+      return false;
     }
-  });
-  return str2.length === count;
+  }
+  return true;
 }
 
 console.log(scramble('rkqodlw', 'world')); //==> True
